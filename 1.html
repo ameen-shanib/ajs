@@ -1,0 +1,73 @@
+
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<script src ="anjs/angular.min.js"></script>
+</head>
+
+<body>
+
+<!--
+<div ng-app="">
+	<input type="text" ng-model="name" />
+<p ng-bind="name"></p>
+<p>{{5+5}}<p>
+</div>
+-->
+
+<div ng-app="myapp"  ng-controller="myctrl" >
+
+<w3-test-directive></w3-test-directive>
+First name:<input type="text" ng-model="fname"></br>
+L Name:<input type="text" ng-model="lname"></br>
+full name:{{fname +""+lname}}
+<div ng-bind="5+5">{{5+8}}</div>
+
+
+<div ng-init="color='lightblue'"></div>
+
+<input type="text" style="background-color:{{color}}" ng-model="color" value="{{color}}" />
+
+
+<div ng-init="name=[0,1,2,3,4,5,6]"></div>
+<div ng-bind="name[2]">{{name[2]}}</div>
+
+
+
+<div ng-init="name1=[{name:'ameen',Lname:'shanib'},{name:'shan',Lname:'ahsa'}]"></div>
+<ul>
+<li ng-repeat = "x in name1">{{x.name + "  " + x.Lname}}</li>
+</ul>
+
+
+
+</div>
+
+</body>
+
+
+
+
+
+<script>
+
+ 
+
+  var app = angular.module('myapp',[]);
+  
+ app.directive("w3TestDirective" ,function(){
+ 	return {
+ 	    template :"haiiii"
+    };
+ });
+ 
+
+ 
+
+  app.controller('myctrl' ,function($scope){
+       $scope.fname = "ameen";
+       $scope.lname = "shanib";
+
+  });
+</script>
+</html>
